@@ -2,10 +2,7 @@
 
 namespace TypewiseAlert
 {
-  public interface IAlertTarget
-  {
-   void SendTarget(BreachType breachType);
-  }
+
 
   public abstract class AlertTarget
   {
