@@ -4,10 +4,6 @@ using System.Text;
 
 namespace TypewiseAlert
 {
-  public interface IBreachType
-  {
-    void LogMessage(string recepient);
-  }
 
   public abstract class BreachType
   {
