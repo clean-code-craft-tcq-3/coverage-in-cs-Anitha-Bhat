@@ -18,6 +18,10 @@ namespace TypewiseAlert.Test
       Assert.True(TypewiseAlert.classifyTemperatureBreach(new HighActiveCooling(), -1) is LowBreachType);
       Assert.True(TypewiseAlert.classifyTemperatureBreach(new MediumActiveCooling(), 50) is HighBreachType);
       Assert.True(TypewiseAlert.classifyTemperatureBreach(new MediumActiveCooling(), 30) is NormalBreachType);
+      var passiveCooling=new PassiveCooling();
+      Assert.True(passiveCooling.lowerLimit,0);
+      Assert.True(passiveCooling.upperLimit,35);
+      
 
 
       var alertTarget = new Mock<AlertTarget>();
