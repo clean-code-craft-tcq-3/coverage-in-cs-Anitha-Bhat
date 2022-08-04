@@ -57,6 +57,18 @@ namespace TypewiseAlert.Test
       var emailTarget2 = new Email();
       emailTarget2.SendTarget(highBreachTypeMock.Object);
       highBreachTypeMock.Verify(func => func.LogMessage(It.IsAny<string>()), Times.Exactly(1));
+      
+       var lowBreachType = new LowBreachType();
+      lowBreachType.LogMessage("xyz");
+      Assert.True(lowBreachType.messageSent);
+
+      var highBreachType = new HighBreachType();
+      highBreachType.LogMessage("xyz");
+      Assert.True(highBreachType.messageSent);
+
+      var normalBreachType = new NormalBreachType();
+      normalBreachType.LogMessage("xyz");
+      Assert.True(normalBreachType.messageSent);
     }
   }
 }
