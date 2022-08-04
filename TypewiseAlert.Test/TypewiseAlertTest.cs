@@ -35,7 +35,17 @@ namespace TypewiseAlert.Test
       TypewiseAlert.checkAndAlert(alertTarget.Object, batteryChar3, -1);
       alertTarget.Verify(func => func.SendTarget(It.IsAny<LowBreachType>()), Times.Exactly(1));
 
+      var passiveCooling = new PassiveCooling();
+      Assert.Equal(0,passiveCooling.lowerLimit);
+      Assert.Equal(35,passiveCooling.upperLimit);
 
+      var highActiveCooling = new HighActiveCooling();
+      Assert.Equal(0, highActiveCooling.lowerLimit);
+      Assert.Equal(45, highActiveCooling.upperLimit);
+
+      var mediumActiveCooling = new MediumActiveCooling();
+      Assert.Equal(0, mediumActiveCooling.lowerLimit);
+      Assert.Equal(40, mediumActiveCooling.upperLimit);
     }
   }
 }
