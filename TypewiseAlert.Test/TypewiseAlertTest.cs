@@ -46,6 +46,17 @@ namespace TypewiseAlert.Test
       var mediumActiveCooling = new MediumActiveCooling();
       Assert.Equal(0, mediumActiveCooling.lowerLimit);
       Assert.Equal(40, mediumActiveCooling.upperLimit);
+      
+      
+      var lowBreachTypeMock = new Mock<LowBreachType>();
+      var emailTarget1=new Email();
+      emailTarget1.SendTarget(lowBreachTypeMock.Object);
+      lowBreachTypeMock.Verify(func=>func.LogMessage(It.IsAny<string>()),Times.Exactly(1));
+
+      var highBreachTypeMock = new Mock<HighBreachType>();
+      var emailTarget2 = new Email();
+      emailTarget2.SendTarget(highBreachTypeMock.Object);
+      highBreachTypeMock.Verify(func => func.LogMessage(It.IsAny<string>()), Times.Exactly(1));
     }
   }
 }
