@@ -51,6 +51,4 @@ namespace TypewiseAlert
     public override int lowerLimit => 0;
     public override int upperLimit => 40;
   };
-
-
 }
